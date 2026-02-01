@@ -9,6 +9,11 @@ namespace GymManagementDAL.Entities
         public int BuildingNumber { get; set; }
         public string City { get; set; } = null!;
         public string Street { get; set; } = null!;
+
+        public override string ToString()
+        {
+            return $"{BuildingNumber}, {Street}, {City}";
+        }
     }
     public abstract class GymUser : BaseEntity
     {

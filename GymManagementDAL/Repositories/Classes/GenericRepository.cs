@@ -15,7 +15,6 @@ namespace GymManagementDAL.Repositories.Classes
         public void Add(T TEntity)
         {
             context.Set<T>().Add(TEntity);
-            context.SaveChanges();
         }
 
         public T? GetById(int id) => context.Set<T>().Find(id);
@@ -29,13 +28,11 @@ namespace GymManagementDAL.Repositories.Classes
         public void Delete(T TEntity)
         {
             context.Set<T>().Remove(TEntity);
-            context.SaveChanges();
         }
 
         public void Update(T TEntity)
         {
             context.Set<T>().Update(TEntity);
-            context.SaveChanges();
         }
     }
 }
