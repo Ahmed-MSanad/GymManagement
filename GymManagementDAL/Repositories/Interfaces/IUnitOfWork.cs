@@ -5,6 +5,7 @@ namespace GymManagementDAL.Repositories.Interfaces
     public interface IUnitOfWork
     {
         IGenericRepository<T> GetRepository<T>() where T : BaseEntity;
+        ISessionRepository SessionRepository { get; set; }
         int SaveChanges();
     }
 }

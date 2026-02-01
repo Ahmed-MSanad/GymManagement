@@ -8,10 +8,12 @@ namespace GymManagementDAL.Repositories.Classes
     {
         private readonly GymDbContext gymDbContext;
         private readonly Dictionary<string, object> Repositories;
+        public ISessionRepository SessionRepository { get; set; }
 
-        public UnitOfWork(GymDbContext _gymDbContext)
+        public UnitOfWork(GymDbContext _gymDbContext, ISessionRepository _SessionRepository)
         {
             gymDbContext = _gymDbContext;
+            SessionRepository = _SessionRepository;
         }
 
         public IGenericRepository<T> GetRepository<T>() where T : BaseEntity
@@ -26,7 +28,6 @@ namespace GymManagementDAL.Repositories.Classes
 
             return newRepo;
         }
-
         public int SaveChanges() => gymDbContext.SaveChanges();
     }
 }

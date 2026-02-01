@@ -1,4 +1,6 @@
+using GymManagementBLL;
 using GymManagementDAL.Data.Contexts;
+using GymManagementDAL.Data.DataSeed;
 using GymManagementDAL.Repositories.Classes;
 using GymManagementDAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -18,8 +20,15 @@ namespace GymManagementPL
                 options.UseSqlServer(builder.Configuration.GetConnectionString("GymDbConnection"));
             });
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddAutoMapper(p => p.AddProfile(new MappingProfile()));
 
             var app = builder.Build();
+
+            #region DataSeeding
+            using var scope = app.Services.CreateScope();
+            var gymDbContext = scope.ServiceProvider.GetRequiredService<GymDbContext>();
+            GymDataSeeding.SeedData(gymDbContext);
+            #endregion
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
