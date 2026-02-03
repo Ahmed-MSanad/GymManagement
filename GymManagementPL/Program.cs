@@ -20,6 +20,7 @@ namespace GymManagementPL
                 options.UseSqlServer(builder.Configuration.GetConnectionString("GymDbConnection"));
             });
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddScoped<ISessionRepository, SessionRepository>();
             builder.Services.AddAutoMapper(p => p.AddProfile(new MappingProfile()));
 
             var app = builder.Build();
@@ -41,9 +42,12 @@ namespace GymManagementPL
             app.UseHttpsRedirection();
             app.UseRouting();
 
+            app.UseStaticFiles();
+
             app.UseAuthorization();
 
             app.MapStaticAssets();
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}")
