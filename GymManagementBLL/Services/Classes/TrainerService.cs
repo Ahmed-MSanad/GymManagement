@@ -1,11 +1,11 @@
 ﻿using GymManagementBLL.Services.Interfaces;
 using GymManagementBLL.ViewModels.TrainerViewModels;
 using GymManagementDAL.Entities;
-using GymManagementDAL.Repositories.Classes;
+using GymManagementDAL.Repositories.Interfaces;
 
 namespace GymManagementBLL.Services.Classes
 {
-    public class TrainerService(UnitOfWork unitOfWork) : ITrainerService
+    public class TrainerService(IUnitOfWork unitOfWork) : ITrainerService
     {
         /*
          * Email and phone must be unique and Valid.

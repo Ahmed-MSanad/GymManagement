@@ -14,6 +14,8 @@ namespace GymManagementDAL.Repositories.Classes
         {
             gymDbContext = _gymDbContext;
             SessionRepository = _SessionRepository;
+            
+            Repositories = new Dictionary<string, object>();
         }
 
         public IGenericRepository<T> GetRepository<T>() where T : BaseEntity
