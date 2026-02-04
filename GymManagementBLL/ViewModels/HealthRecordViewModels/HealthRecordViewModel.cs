@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GymManagementBLL.ViewModels.HealthRecordViewModels
+namespace GymManagementBLL.ViewModels
 {
     public class HealthRecordViewModel
     {

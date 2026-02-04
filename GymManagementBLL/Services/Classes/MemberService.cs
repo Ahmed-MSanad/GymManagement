@@ -1,6 +1,5 @@
 ﻿using GymManagementBLL.Services.Interfaces;
-using GymManagementBLL.ViewModels.HealthRecordViewModels;
-using GymManagementBLL.ViewModels.MemberViewModels;
+using GymManagementBLL.ViewModels;
 using GymManagementDAL.Entities;
 using GymManagementDAL.Repositories.Interfaces;
 
@@ -130,7 +129,7 @@ namespace GymManagementBLL.Services.Classes
         {
             try
             {
-                if (IsEmailExist(memberUpdateViewModel.Email) || IsPhoneExist(memberUpdateViewModel.Phone)) return false;
+                if (IsEmailExist(memberUpdateViewModel.Email, memberId) || IsPhoneExist(memberUpdateViewModel.Phone, memberId)) return false;
                 
                 var member = unitOfWork.GetRepository<Member>().GetById(memberId);
                 if (member is null) return false;
@@ -201,14 +200,14 @@ namespace GymManagementBLL.Services.Classes
         }
 
         #region Helper Methods
-        private bool IsEmailExist(string email)
+        private bool IsEmailExist(string email, int? id = null)
         {
-            var member = unitOfWork.GetRepository<Member>().GetAll(m => m.Email == email);
+            var member = unitOfWork.GetRepository<Member>().GetAll(m => m.Id != id && m.Email == email);
             return member is not null && member.Any();
         }
-        private bool IsPhoneExist(string phone)
+        private bool IsPhoneExist(string phone, int? id = null)
         {
-            var member = unitOfWork.GetRepository<Member>().GetAll(m => m.Phone == phone);
+            var member = unitOfWork.GetRepository<Member>().GetAll(m => m.Id != id && m.Phone == phone);
             return member is not null && member.Any();
         }
         #endregion

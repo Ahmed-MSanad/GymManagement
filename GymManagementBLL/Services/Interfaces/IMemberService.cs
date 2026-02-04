@@ -1,5 +1,4 @@
-﻿using GymManagementBLL.ViewModels.HealthRecordViewModels;
-using GymManagementBLL.ViewModels.MemberViewModels;
+﻿using GymManagementBLL.ViewModels;
 
 namespace GymManagementBLL.Services.Interfaces
 {

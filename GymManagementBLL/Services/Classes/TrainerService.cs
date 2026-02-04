@@ -9,7 +9,6 @@ namespace GymManagementBLL.Services.Classes
     {
         /*
          * Email and phone must be unique and Valid.
-         * Cannot delete trainers with future sessions.
          * Must have one specialty assigned.
          * Hire Date Will Be Calculated Automatically.
          */
@@ -84,7 +83,7 @@ namespace GymManagementBLL.Services.Classes
         {
             try
             {
-                if (isEmailExist(trainerCreateViewModel.Email) || isPhoneExist(trainerCreateViewModel.Phone)) return false;
+                if (isEmailExist(trainerCreateViewModel.Email, trainerId) || isPhoneExist(trainerCreateViewModel.Phone, trainerId)) return false;
 
                 var trainer = unitOfWork.GetRepository<Trainer>().GetById(trainerId);
                 if(trainer is null) return false;
@@ -110,7 +109,9 @@ namespace GymManagementBLL.Services.Classes
                 return false;
             }
         }
-
+        /*
+         * Cannot delete trainers with future sessions.
+         */
         public bool RemoveTrainer(int trainerId)
         {
             try
@@ -133,14 +134,14 @@ namespace GymManagementBLL.Services.Classes
         }
 
         #region Helper Methods
-        private bool isEmailExist(string email)
+        private bool isEmailExist(string email, int? id = null)
         {
-            var trainerEmail = unitOfWork.GetRepository<Trainer>().GetAll(t => t.Email == email);
+            var trainerEmail = unitOfWork.GetRepository<Trainer>().GetAll(t => t.Id != id && t.Email == email);
             return trainerEmail is not null && trainerEmail.Any();
         }
-        private bool isPhoneExist(string phone)
+        private bool isPhoneExist(string phone, int? id = null)
         {
-            var trainerPhone = unitOfWork.GetRepository<Trainer>().GetAll(t => t.Phone == phone);
+            var trainerPhone = unitOfWork.GetRepository<Trainer>().GetAll(t => t.Id != id && t.Phone == phone);
             return trainerPhone is not null && trainerPhone.Any();
         }
         #endregion

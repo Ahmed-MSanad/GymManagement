@@ -1,9 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using GymManagementBLL.ViewModels.HealthRecordViewModels;
-using GymManagementDAL.Entities;
 using GymManagementDAL.Entities.Enum;
 
-namespace GymManagementBLL.ViewModels.MemberViewModels
+namespace GymManagementBLL.ViewModels
 {
     public class MemberCreateViewModel
     {
@@ -15,7 +13,6 @@ namespace GymManagementBLL.ViewModels.MemberViewModels
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; } = null!;
         [Required(ErrorMessage = "Phone is required")]
-        [EmailAddress(ErrorMessage = "Invalid Phone Address")]
         [RegularExpression(@"^01(0|1|2|5)\d{8}$", ErrorMessage = "Phone number must be valid egyption phone number")]
         public string Phone { get; set; } = null!;
         [Required(ErrorMessage = "DateOfBirth is required")]
