@@ -1,5 +1,5 @@
 ﻿using GymManagementBLL.Services.Interfaces;
-using GymManagementBLL.ViewModels.TrainerViewModels;
+using GymManagementBLL.ViewModels;
 using GymManagementDAL.Entities;
 using GymManagementDAL.Repositories.Interfaces;
 
@@ -19,6 +19,7 @@ namespace GymManagementBLL.Services.Classes
 
             return trainers.Select(t => new TrainerViewModel
             {
+                Id = t.Id,
                 Email = t.Email,
                 Name = t.Name,
                 Phone = t.Phone,

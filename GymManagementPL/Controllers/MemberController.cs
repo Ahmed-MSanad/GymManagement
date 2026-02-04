@@ -101,7 +101,6 @@ namespace GymManagementPL.Controllers
         }
         public IActionResult DeleteMember([FromForm] int id)
         {
-            Console.WriteLine($"member id: {id}");
             if (memberService.RemoveMember(id))
                 TempData["SuccessMessage"] = "Member is deleted Successfully";
             else

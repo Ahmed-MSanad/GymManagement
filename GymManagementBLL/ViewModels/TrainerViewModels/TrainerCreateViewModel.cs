@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using GymManagementDAL.Entities.Enum;
 
-namespace GymManagementBLL.ViewModels.TrainerViewModels
+namespace GymManagementBLL.ViewModels
 {
     public class TrainerCreateViewModel
     {
