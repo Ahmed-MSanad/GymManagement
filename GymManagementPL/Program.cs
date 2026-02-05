@@ -31,10 +31,18 @@ namespace GymManagementPL
             builder.Services.AddScoped<IPlanService, PlanService>();
             builder.Services.AddScoped<ITrainerService, TrainerService>();
 
+            
+            
+            builder.Services.AddScoped<IAccountService, AccountService>();
+
+
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 6;
                 options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true; // default
+                options.Password.RequireNonAlphanumeric = true; // default
+                options.Password.RequireDigit = true; // default
             }).AddEntityFrameworkStores<GymDbContext>();
 
             builder.Services.ConfigureApplicationCookie(options =>
@@ -63,9 +71,9 @@ namespace GymManagementPL
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
             app.UseRouting();
 
-            app.UseStaticFiles();
 
             app.UseAuthentication();
             app.UseAuthorization();
@@ -74,7 +82,7 @@ namespace GymManagementPL
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
+                pattern: "{controller=Account}/{action=Login}/{id?}")
                 .WithStaticAssets();
 
             app.Run();

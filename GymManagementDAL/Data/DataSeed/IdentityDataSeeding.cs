@@ -34,7 +34,7 @@ namespace GymManagementDAL.Data.DataSeed
                         Email = "ahmedKhaled@gmail.com",
                         PhoneNumber = "01234567890",
                     };
-                    userManager.CreateAsync(SuperAdmin, "p@ssword2").Wait();
+                    userManager.CreateAsync(SuperAdmin, "P@ssw0rd").Wait();
                     userManager.AddToRoleAsync(SuperAdmin, "SuperAdmin").Wait();
                     var Admin = new ApplicationUser
                     {
@@ -44,7 +44,7 @@ namespace GymManagementDAL.Data.DataSeed
                         Email = "omarSamir@gmail.com",
                         PhoneNumber = "01098765431",
                     };
-                    userManager.CreateAsync(Admin, "p@ssword2").Wait();
+                    userManager.CreateAsync(Admin, "P@ssw0rd").Wait();
                     userManager.AddToRoleAsync(Admin, "Admin").Wait();
                 }
                 return true;
