@@ -6,6 +6,8 @@ using GymManagementDAL.Data.DataSeed;
 using GymManagementDAL.Repositories.Classes;
 using GymManagementDAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using GymManagementDAL.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace GymManagementPL
 {
@@ -15,7 +17,6 @@ namespace GymManagementPL
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<GymDbContext>(options =>
             {
@@ -30,12 +31,27 @@ namespace GymManagementPL
             builder.Services.AddScoped<IPlanService, PlanService>();
             builder.Services.AddScoped<ITrainerService, TrainerService>();
 
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 6;
+                options.Password.RequireLowercase = true;
+            }).AddEntityFrameworkStores<GymDbContext>();
+
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Account/Login";
+                options.AccessDeniedPath = "/Account/Accessdenied";
+            });
+
             var app = builder.Build();
 
             #region DataSeeding
             using var scope = app.Services.CreateScope();
             var gymDbContext = scope.ServiceProvider.GetRequiredService<GymDbContext>();
             GymDataSeeding.SeedData(gymDbContext);
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+            IdentityDataSeeding.SeedData(userManager, roleManager);
             #endregion
 
             // Configure the HTTP request pipeline.
@@ -51,6 +67,7 @@ namespace GymManagementPL
 
             app.UseStaticFiles();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapStaticAssets();
