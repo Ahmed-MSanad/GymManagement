@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using GymManagementBLL.Services.Interfaces;
-using GymManagementBLL.ViewModels.SessionViewModels;
+using GymManagementBLL.ViewModels;
 using GymManagementDAL.Entities;
 using GymManagementDAL.Repositories.Interfaces;
 
@@ -20,7 +20,7 @@ namespace GymManagementBLL.Services.Classes
             var sessions = unitOfWork.SessionRepository
                                     .GetAllSessionsWithCategoryAndTrainer()
                                     .OrderByDescending(s => s.StartDate);
-            if (sessions == null || sessions.Any()) return [];
+            if (sessions is null || !sessions.Any()) return [];
 
             var mappedSessions = mapper.Map<IEnumerable<SessionViewModel>>(sessions);
 
@@ -70,12 +70,16 @@ namespace GymManagementBLL.Services.Classes
             {
                 var session = unitOfWork.SessionRepository.GetById(sessionId);
 
-                if (!isSessionAvailableForUpdate(session) ||
-                    !isTrainerExist(sessionUpdateViewModel.TrainerId) ||
-                    !isValidDate(sessionUpdateViewModel.StartDate, sessionUpdateViewModel.EndDate)) return false;
+                if (!isSessionAvailableForUpdate(session)) return false;
 
-                session = mapper.Map<Session>(sessionUpdateViewModel);
+                if (!isTrainerExist(sessionUpdateViewModel.TrainerId)) return false;
 
+                if (!isValidDate(sessionUpdateViewModel.StartDate, sessionUpdateViewModel.EndDate)) return false;
+
+                session.StartDate = sessionUpdateViewModel.StartDate;
+                session.TrainerId = sessionUpdateViewModel.TrainerId;
+                session.EndDate = sessionUpdateViewModel.EndDate;
+                session.Description = sessionUpdateViewModel.Description;
                 session.UpdatedAt = DateTime.UtcNow;
 
                 unitOfWork.SessionRepository.Update(session);
@@ -99,10 +103,19 @@ namespace GymManagementBLL.Services.Classes
         public bool RemoveSession(int sessionId)
         {
             var session = unitOfWork.SessionRepository.GetById(sessionId);
-            if (isSessionAvailableForRemove(session)) return false;
+            if (!isSessionAvailableForRemove(session)) return false;
 
             unitOfWork.SessionRepository.Delete(session);
             return unitOfWork.SaveChanges() > 0;
+        }
+
+        public IEnumerable<CategorySelectViewModel> GetCategoriesDropdown()
+        {
+            return mapper.Map<IEnumerable<CategorySelectViewModel>>(unitOfWork.GetRepository<Category>().GetAll());
+        }
+        public IEnumerable<TrainerSelectViewModel> GetTrainersDropdown()
+        {
+            return mapper.Map<IEnumerable<TrainerSelectViewModel>>(unitOfWork.GetRepository<Trainer>().GetAll());
         }
 
         #region Helper Methods
@@ -121,13 +134,13 @@ namespace GymManagementBLL.Services.Classes
                 &&
                 unitOfWork.SessionRepository.GetFreeSessionSlots(session.Id) == session.Capacity; // not session with active members
         private bool isSessionAvailableForRemove(Session session)
-            => !(session is null)
-                &&
-                !(session.StartDate > DateTime.UtcNow) // not upcoming session
-                &&
-                !(session.StartDate <= DateTime.UtcNow && session.EndDate > DateTime.UtcNow) // not currently working session
-                &&
-                unitOfWork.SessionRepository.GetFreeSessionSlots(session.Id) == session.Capacity; // not session with active members
+        => !(session is null)
+            &&
+            !(session.StartDate > DateTime.UtcNow) // not upcoming session
+            &&
+            !(session.StartDate <= DateTime.UtcNow && session.EndDate >= DateTime.UtcNow) // not currently working session
+            &&
+            unitOfWork.SessionRepository.GetFreeSessionSlots(session.Id) == session.Capacity; // not session with active members
         #endregion
     }
 }

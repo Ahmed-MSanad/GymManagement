@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using GymManagementBLL.ViewModels.SessionViewModels;
+using GymManagementBLL.ViewModels;
 using GymManagementDAL.Entities;
 
 namespace GymManagementBLL
@@ -21,6 +21,10 @@ namespace GymManagementBLL
             CreateMap<SessionCreateViewModel, Session>();
 
             CreateMap<SessionUpdateViewModel, Session>().ReverseMap();
+
+            CreateMap<Category, CategorySelectViewModel>();
+
+            CreateMap<Trainer, TrainerSelectViewModel>();
         }
     }
 }
