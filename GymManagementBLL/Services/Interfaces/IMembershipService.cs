@@ -5,6 +5,7 @@ namespace GymManagementBLL.Services.Interfaces
     public interface IMembershipService
     {
         IEnumerable<MembershipViewModel> GetMemberShips();
-        bool AddMemberShip(MembershipCreateViewModel membershipCreateViewModel);
+        bool AddMembership(MembershipCreateViewModel membershipCreateViewModel);
+        bool RemoveMembership(int memberId, int planId);
     }
 }

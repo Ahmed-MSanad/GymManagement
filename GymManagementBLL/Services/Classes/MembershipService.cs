@@ -17,7 +17,7 @@ namespace GymManagementBLL.Services.Classes
             return result;
         }
 
-        public bool AddMemberShip(MembershipCreateViewModel membershipCreateViewModel)
+        public bool AddMembership(MembershipCreateViewModel membershipCreateViewModel)
         {
             var plan = unitOfWork.GetRepository<Plan>().GetById(membershipCreateViewModel.PlanId);
             if (plan is null) return false;
@@ -30,6 +30,17 @@ namespace GymManagementBLL.Services.Classes
             };
 
             unitOfWork.MemberShipRepository.Add(memberShip);
+
+            unitOfWork.SaveChanges();
+
+            return true;
+        }
+    
+        public bool RemoveMembership(int memberId, int planId)
+        {
+            var memberShip = unitOfWork.MemberShipRepository.GetAll(ms => ms.MemberId == memberId && ms.PlanId == planId).FirstOrDefault();
+            
+            unitOfWork.MemberShipRepository.Delete(memberShip);
 
             unitOfWork.SaveChanges();
 
