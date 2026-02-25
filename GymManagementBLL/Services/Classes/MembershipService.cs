@@ -19,6 +19,10 @@ namespace GymManagementBLL.Services.Classes
 
         public bool AddMembership(MembershipCreateViewModel membershipCreateViewModel)
         {
+            var isThereActiveMembership = unitOfWork.MemberShipRepository.GetAll(ms => ms.MemberId == membershipCreateViewModel.MemberId && ms.Status == "Active").FirstOrDefault();
+            if (isThereActiveMembership != null)
+                return false;
+
             var plan = unitOfWork.GetRepository<Plan>().GetById(membershipCreateViewModel.PlanId);
             if (plan is null) return false;
 

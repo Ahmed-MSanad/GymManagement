@@ -28,7 +28,24 @@ namespace GymManagementPL.Controllers
                 ModelState.AddModelError("InValidInput", "Please Select Valid Values!");
                 return View(membershipCreateViewModel);
             }
-            membershipService.AddMemberShip(membershipCreateViewModel);
+            bool result = membershipService.AddMembership(membershipCreateViewModel);
+            if (result)
+                return RedirectToAction("Index");
+            else
+            {
+                ModelState.AddModelError("CreationFailed", "Failed to Create Membership. The Member already has an active plan!");
+                return View();
+            }
+        }
+        public IActionResult Delete(int memberId, int planId)
+        {
+            TempData["memberId"] = memberId;
+            TempData["planId"] = planId;
+            return RedirectToAction("Index");
+        }
+        public IActionResult DeleteMembership([FromForm] int memberId, [FromForm] int planId)
+        {
+            membershipService.RemoveMembership(memberId, planId);
             return RedirectToAction("Index");
         }
     }
