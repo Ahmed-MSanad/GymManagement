@@ -32,6 +32,13 @@ namespace GymManagementBLL
                 .ForMember(des => des.PlanName, options => options.MapFrom(src => src.Plan.Name))
                 .ForMember(des => des.Price, options => options.MapFrom(src => src.Plan.Price))
                 .ForMember(des => des.RemainingDays, options => options.MapFrom(src => (src.EndDate - DateTime.Now).Days));
+
+            CreateMap<Booking, BookingViewModel>()
+                .ForMember(des => des.MemberName, options => options.MapFrom(src => src.Member.Name))
+                .ForMember(des => des.TrainerName, options => options.MapFrom(src => src.Session.Trainer.Name))
+                .ForMember(des => des.CategoryName, options => options.MapFrom(src => src.Session.Category.CategoryName))
+                .ForMember(des => des.StartDate, options => options.MapFrom(src => src.Session.StartDate))
+                .ForMember(des => des.EndDate, options => options.MapFrom(src => src.Session.EndDate));
         }
     }
 }
