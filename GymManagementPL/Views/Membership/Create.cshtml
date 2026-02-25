@@ -1,0 +1,38 @@
+﻿@model MembershipCreateViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+@Html.ValidationMessage("InValidInput", new{@class = "text-danger"})
+
+<form action="Create" method="post">
+    <div class="row g-3 mb-4">
+        <div class="col-md-6">
+            <label asp-for="MemberId" class="form-label fw-semibold">Chose Member <span class="text-danger">*</span></label>
+            <select id="memberlist" asp-for="MemberId" asp-items="ViewBag.MembersList" class="form-select">
+                <option value="">Select Member</option>
+            </select>
+            <span asp-validation-for="MemberId" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="PlanId" class="form-label fw-semibold">Chose Plan <span class="text-danger">*</span></label>
+            <select id="planlist" asp-for="PlanId" asp-items="ViewBag.PlansList" class="form-select">
+                <option value="">Select Plan</option>
+            </select>
+            <span asp-validation-for="PlanId" class="text-danger"></span>
+        </div>
+	</div>
+
+    <div class="d-flex justify-content-between mt-4 pt-3 border-top">
+        <a asp-action="Index" class="btn btn-outline">
+            <i class="bi bi-arrow-left me-1"></i>Cancel
+        </a>
+        <button type="submit" class="btn btn-fill">
+            <i class="bi bi-check-lg me-1"></i>Create Session
+        </button>
+    </div>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

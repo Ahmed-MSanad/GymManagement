@@ -1,4 +1,4 @@
-﻿namespace GymManagementBLL.ViewModels.MembershipViewModels
+﻿namespace GymManagementBLL.ViewModels
 {
     public class MembershipViewModel
     {

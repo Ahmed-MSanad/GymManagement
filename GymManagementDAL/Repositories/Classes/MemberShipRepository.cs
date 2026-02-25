@@ -16,7 +16,10 @@ namespace GymManagementDAL.Repositories.Classes
         {
             if (context.MemberShips is not null && context.MemberShips.Any())
             {
-                return context.MemberShips.Include(ms => ms.Plan).Include(ms => ms.Member).Where(condition).ToList();
+                if(condition is not null)
+                    return context.MemberShips.Include(ms => ms.Plan).Include(ms => ms.Member).Where(condition).ToList();
+                else
+                    return context.MemberShips.Include(ms => ms.Plan).Include(ms => ms.Member).ToList();
             }
             else
             {
