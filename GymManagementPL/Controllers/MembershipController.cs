@@ -43,6 +43,7 @@ namespace GymManagementPL.Controllers
             TempData["planId"] = planId;
             return RedirectToAction("Index");
         }
+        [HttpPost]
         public IActionResult DeleteMembership([FromForm] int memberId, [FromForm] int planId)
         {
             membershipService.RemoveMembership(memberId, planId);

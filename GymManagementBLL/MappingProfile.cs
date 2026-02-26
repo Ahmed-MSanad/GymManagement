@@ -38,7 +38,8 @@ namespace GymManagementBLL
                 .ForMember(des => des.TrainerName, options => options.MapFrom(src => src.Session.Trainer.Name))
                 .ForMember(des => des.CategoryName, options => options.MapFrom(src => src.Session.Category.CategoryName))
                 .ForMember(des => des.StartDate, options => options.MapFrom(src => src.Session.StartDate))
-                .ForMember(des => des.EndDate, options => options.MapFrom(src => src.Session.EndDate));
+                .ForMember(des => des.EndDate, options => options.MapFrom(src => src.Session.EndDate))
+                .ForMember(des => des.TrainerId, options => options.MapFrom(src => src.Session.TrainerId));
         }
     }
 }

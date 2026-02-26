@@ -6,5 +6,6 @@ namespace GymManagementBLL.Services.Interfaces
     {
         IEnumerable<BookingViewModel>? GetBookings();
         bool AddBooking(BookingCreateViewModel bookingCreateViewModel);
+        bool removeBooking(int memberId, int sessionId);
     }
 }

@@ -1,12 +1,14 @@
-﻿@model IEnumerable<MembershipViewModel>
+﻿@model IEnumerable<BookingViewModel>
 @{
 }
+
+<span class="text-danger">@TempData["DeletionFailed"]</span>
 
 <div class="container">
 
     <header class="d-flex justify-content-end mt-5 mb-4 align-items-center">
-        <a asp-controller="Membership" asp-action="Create" class="btn btn-fill fw-medium rounded-pill px-3 py-3">
-            + Add Membership
+        <a asp-action="Create" class="btn btn-fill fw-medium rounded-pill px-3 py-3">
+            + Add Booking
         </a>
     </header>
 
@@ -14,7 +16,7 @@
         <div class="card shadow-lg border-0 rounded-4">
 
             <div class="card-header bg-primary text-white rounded-top-4">
-                <h4 class="mb-0">Membership List</h4>
+                <h4 class="mb-0">Booking List</h4>
             </div>
 
             <div class="card-body p-0">
@@ -23,65 +25,54 @@
                     <thead class="table-light text-uppercase small">
                         <tr>
                             <th>Member</th>
-                            <th>Plan</th>
+                            <th>Category</th>
+                            <th>Trainer</th>
                             <th>Start Date</th>
                             <th>End Date</th>
-                            <th>Price</th>
-                            <th>Remaining</th>
-                            <th>Status</th>
+                            <th>IsAttended</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @if(Model is not null && Model.Any()){
-                            @foreach(var ms in Model){
+                        @if (Model is not null && Model.Any())
+                        {
+                            @foreach (var ms in Model)
+                            {
                                 <tr>
                                     <td class="fw-semibold">@ms.MemberName</td>
-                                    <td>@ms.PlanName</td>
+                                    <td>@ms.CategoryName</td>
+                                    <td>@ms.TrainerName</td>
                                     <td>@ms.StartDate</td>
                                     <td>@ms.EndDate</td>
-                                    <td class="fw-bold text-dark">@ms.Price</td>
-                                    <td>
-                                        @if (ms.Status == "Active"){
-                                            <span class="badge bg-success-subtle text-success">
-                                                @ms.RemainingDays
-                                            </span>
-                                        }
-                                        else{
-                                            <span class="badge bg-danger-subtle text-danger">
-                                                @ms.RemainingDays
-                                            </span>
-                                        }
-                                    </td>
-                                    <td>
-										@if (ms.Status == "Active")
-										{
-											<span class="badge bg-success">@ms.Status</span>
-										}
-                                        else{
-                                            <span class="badge bg-danger">
-                                                @ms.Status
-                                            </span>
-                                        }
-                                    </td>
+                                    <td>@ms.IsAttended</td>
                                     <td class="action position-relative">
                                         <div class="dropdown">
-                                            <button class="btn btn-link p-0 border-0" type="button" id="dropdownMenuButton-@ms.PlanId-@ms.MemberId" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <button class="btn btn-link p-0 border-0" type="button" id="dropdownMenuButton-@ms.SessionId-@ms.MemberId" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <img src="~/images/action dots.jpg" alt="action icon" />
                                             </button>
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton-@ms.PlanId-@ms.MemberId">
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton-@ms.SessionId-@ms.MemberId">
                                                 <li>
-                                                    <a asp-action="Delete" asp-route-memberId="@ms.MemberId" asp-route-planId="@ms.PlanId" class="dropdown-item d-flex align-items-center gap-3 text-danger">
+                                                    <a asp-action="Delete" asp-route-memberId="@ms.MemberId" asp-route-sessionId="@ms.SessionId" class="dropdown-item d-flex align-items-center gap-3 text-danger">
                                                         <i class="bi bi-trash"></i>
                                                         <span>Delete</span>
                                                     </a>
+                                                </li>
+                                                <li>
                                                     <a asp-controller="Member" asp-action="MemberDetails" asp-route-Id="@ms.MemberId" class="dropdown-item d-flex align-items-center gap-3">
                                                         <img src="~/images/info 1.jpg" alt="info icon" style="width: 20px; height: 20px;" />
                                                         <span>View Member Details</span>
                                                     </a>
-                                                    <a asp-controller="Plan" asp-action="Details" asp-route-id="@ms.PlanId" class="dropdown-item d-flex align-items-center gap-3">
+                                                </li>
+                                                <li>
+                                                    <a asp-controller="Session" asp-action="Details" asp-route-id="@ms.SessionId" class="dropdown-item d-flex align-items-center gap-3">
                                                         <i class="bi bi-eye me-1"></i>View Plan Details
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a asp-controller="Trainer" asp-action="TrainerDetails" asp-route-Id="@ms.TrainerId" class="dropdown-item d-flex align-items-center gap-3">
+                                                        <i class="bi bi-eye text-primary-color"></i>
+                                                        <span>View Trainer Details</span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -90,10 +81,11 @@
                                 </tr>
                             }
                         }
-                        else{
+                        else
+                        {
                             <tr>
                                 <td colspan="7" class="text-center py-4 text-muted fw-semibold">
-                                    Sorry, no memberships found.
+                                    Sorry, no bookings found.
                                 </td>
                             </tr>
                         }
@@ -101,10 +93,10 @@
                 </table>
             </div>
         </div>
-        @if (TempData["memberId"] is not null && TempData["planId"] is not null)
+        @if (TempData["memberId"] is not null && TempData["sessionId"] is not null)
         {
             <div class="position-fixed top-0 bottom-0 start-0 end-0 d-flex align-items-center justify-content-center" style="background-color: rgba(0,0,0,0.5)">
-                <partial name="Delete_Membership_Confirm_partial"/>
+                <partial name="Delete_Session_Confirm_partial" />
             </div>
         }
     </div>

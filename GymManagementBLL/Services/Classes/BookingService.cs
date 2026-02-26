@@ -23,7 +23,7 @@ namespace GymManagementBLL.Services.Classes
             var activeMembership = unitOfWork.MemberShipRepository.GetAll(ms => ms.MemberId == bookingCreateViewModel.MemberId && ms.Status == "Active").FirstOrDefault();
             if (activeMembership is null)
                 return false;
-            /* Session must have active capacity */
+            /* Session must have available capacity */
             var session = unitOfWork.SessionRepository.GetById(bookingCreateViewModel.SessionId);
             if (session is null || session.Capacity <= 0)
                 return false;
@@ -49,8 +49,8 @@ namespace GymManagementBLL.Services.Classes
         public bool removeBooking(int memberId, int sessionId)
         {
             /* Only future bookings can be cancelled */
-            var booking = unitOfWork.BookingRepository.GetAll(b => b.MemberId == memberId && b.SessionId == sessionId).FirstOrDefault();
-            if(booking is null) 
+            var booking = unitOfWork.BookingRepository.GetBookingsWithDetails(b => b.MemberId == memberId && b.SessionId == sessionId)?.FirstOrDefault();
+            if (booking is null) 
                 return false;
             if(booking.Session.StartDate <= DateTime.Now)
                 return false;

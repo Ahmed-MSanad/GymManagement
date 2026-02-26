@@ -3,6 +3,7 @@
     public class SessionViewModel
     {
         public int Id { get; set; }
+        public string DisplayName => $"{CategoryName} - {TrainerName}";
         public string Description { get; set; } = null!;
         public int Capacity { get; set; }
         public DateTime StartDate { get; set; }

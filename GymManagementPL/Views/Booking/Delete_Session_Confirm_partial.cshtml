@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Delete Booking";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-5 shadow text-center">
+
+                <p class="fs-3 text-primary-color mb-4">Are you sure you want to delete this Booking?</p>
+
+                <div class="alert alert-warning text-start" role="alert">
+                    <strong>Warning!</strong> This action cannot be undone. Booking data will be permanently deleted.
+                </div>
+
+                <form asp-action="DeleteBooking" method="post" class="mt-4">
+                    <input type="hidden" name="memberId" value="@TempData["memberId"]" readonly />
+                    <input type="hidden" name="sessionId" value="@TempData["sessionId"]" readonly />
+                    <div class="buttons d-flex justify-content-between gap-3">
+                        <a asp-action="Index" class="btn-outline flex-fill">NO</a>
+                        <button type="submit" class="btn-fill flex-fill">Yes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
