@@ -3,411 +3,387 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="container">
-    <main role="main" class="pb-3">
-        <div class="row">
-            <div class="col-md-6 col-lg-7 col-12">
-                <div class="info mt-4">
-                    <header class="text-black-alternative">
-                        <h2 class="fw-bolder display-2 mb-4">
-                            Your body can
-                            <span class="text-primary-color">stand almost</span> anything
-                        </h2>
+<!-- ═══════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section class="hero-grid" style="display:grid; grid-template-columns:1fr 1fr; position:relative; overflow:hidden;">
 
-                        <p class="mb-6">
-                            It's your mind that needs convincing. Push past your limits,
-                            stay <br />
-                            committed, and watch as your body transform into powerhouse of
-                            <br />
-                            strength and resilience. Start your journey today & truly
-                            capable of!
-                        </p>
-                    </header>
+    <!-- LEFT -->
+    <div class="hero-left" style="padding:clamp(100px,12vw,160px) clamp(30px,5vw,80px) 80px; display:flex; flex-direction:column; justify-content:center; position:relative; z-index:2;">
 
-                    <div class="stats-bar">
-                        <div class="row g-0">
-                            <div class="col-4">
-                                <div class="stat">
-                                    <span class="fw-bolder fs-5 d-block mb-1">@Model.TotalMembers</span>
-                                    <h3 class="fs-5 fw-normal">Total Members</h3>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="stat">
-                                    <span class="fw-bolder fs-5 d-block mb-1">@Model.ActiveMembers</span>
-                                    <h3 class="fs-5 fw-normal">Active Members</h3>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="stat">
-                                    <span class="fw-bolder fs-5 d-block mb-1">@Model.TotalTrainers</span>
-                                    <h3 class="fs-5 fw-normal">Trainers</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row g-0">
-                            <div class="col-4">
-                                <div class="stat">
-                                    <span class="fw-bolder fs-5 d-block mb-1">@Model.UpcomingSessions</span>
-                                    <h3 class="fs-5 fw-normal">Upcoming Sessions</h3>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="stat">
-                                    <span class="fw-bolder fs-5 d-block mb-1">@Model.OngoingSessions</span>
-                                    <h3 class="fs-5 fw-normal">Ongoing Sessions</h3>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="stat">
-                                    <span class="fw-bolder fs-5 d-block mb-1">@Model.CompletedSessions</span>
-                                    <h3 class="fs-5 fw-normal">Completed Sessions</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
+            <span style="width:40px; height:2px; background:#FF3D00; display:block; flex-shrink:0;"></span>
+            <span style="font-size:11px; letter-spacing:0.25em; text-transform:uppercase; color:#FF3D00; font-weight:500;">Elite Performance Training</span>
+        </div>
 
-                    <div class="buttons my-4">
-                        <button class="get-started bg-primary-color text-white btn rounded-5 fw-medium px-3 py-2 me-5 border-2 border-primary-color">
-                            Get Started
-                        </button>
+        <h1 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(64px,9vw,80px); line-height:0.9; margin-bottom:32px; color:#F5F5F0; letter-spacing:0.02em;">
+            Your Limits<br>Are Only<br>
+            <em style="font-family:'Playfair Display',serif; font-style:italic; color:#FF3D00; font-size:0.75em;">In Your</em><br>
+            Mind
+        </h1>
 
-                        <button class="explore-more border-primary-color btn rounded-5 fw-medium px-3 py-2 border-2 text-primary-color fw-medium">
-                            Explore More
-                        </button>
-                    </div>
-                </div>
+        <p style="font-size:15px; line-height:1.8; color:#B0B0B0; max-width:400px; margin-bottom:48px;">
+            Elevate your mindset, exceed your limits, and sculpt a body that reflects strength, control, and commitment.
+        </p>
+
+        <div style="display:flex; align-items:center; gap:24px;">
+            <button class="btn-fire" style="display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:#FF3D00; color:#fff; font-family:'DM Sans',sans-serif; font-weight:500; font-size:13px; letter-spacing:0.15em; text-transform:uppercase; border:none; cursor:pointer; clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px)); transition:background 0.25s ease,transform 0.25s ease; position:relative; overflow:hidden;">
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                Get Started
+            </button>
+            <button class="btn-ghost" style="display:inline-flex; align-items:center; gap:8px; color:#F5F5F0; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; border:none; background:none; cursor:pointer; padding:0; transition:color 0.2s;">
+                <span class="arr-circle" style="width:32px; height:32px; border:1px solid rgba(255,255,255,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                    <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </span>
+                Explore More
+            </button>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="hero-right" style="position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+        <div aria-hidden="true" style="font-family:'Bebas Neue',sans-serif; font-size:clamp(180px,25vw,340px); line-height:0.85; color:transparent; -webkit-text-stroke:1px rgba(255,61,0,0.25); position:absolute; right:-0.05em; bottom:-0.05em; z-index:0; pointer-events:none; user-select:none;">1</div>
+        <img src="~/images/main-image.png" alt="Elite Athlete" style="object-fit:cover; object-position:top center; filter:grayscale(30%) contrast(1.1); transition:filter 0.6s ease; display:block;">
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     STATS STRIP
+════════════════════════════════════════════ -->
+<div style="background:#1A1A1A; border-top:1px solid rgba(255,61,0,0.2); border-bottom:1px solid rgba(255,61,0,0.2); padding:40px 0;">
+    <div class="stats-grid" style="display:grid; grid-template-columns:repeat(6,1fr); max-width:1400px; margin:0 auto; padding:0 clamp(20px,5vw,80px);">
+
+        <div style="text-align:center; padding:20px;">
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:clamp(36px,4vw,56px); color:#FF3D00; line-height:1; display:block;">@Model.TotalMembers</span>
+            <span style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#B0B0B0; margin-top:6px; display:block;">Total Members</span>
+        </div>
+        <div style="text-align:center; padding:20px; border-left:1px solid rgba(255,255,255,0.08);">
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:clamp(36px,4vw,56px); color:#FF3D00; line-height:1; display:block;">@Model.ActiveMembers</span>
+            <span style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#B0B0B0; margin-top:6px; display:block;">Active Members</span>
+        </div>
+        <div style="text-align:center; padding:20px; border-left:1px solid rgba(255,255,255,0.08);">
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:clamp(36px,4vw,56px); color:#FF3D00; line-height:1; display:block;">@Model.TotalTrainers</span>
+            <span style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#B0B0B0; margin-top:6px; display:block;">Trainers</span>
+        </div>
+        <div style="text-align:center; padding:20px; border-left:1px solid rgba(255,255,255,0.08);">
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:clamp(36px,4vw,56px); color:#FF3D00; line-height:1; display:block;">@Model.UpcomingSessions</span>
+            <span style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#B0B0B0; margin-top:6px; display:block;">Upcoming Sessions</span>
+        </div>
+        <div style="text-align:center; padding:20px; border-left:1px solid rgba(255,255,255,0.08);">
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:clamp(36px,4vw,56px); color:#FF3D00; line-height:1; display:block;">@Model.OngoingSessions</span>
+            <span style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#B0B0B0; margin-top:6px; display:block;">Ongoing Sessions</span>
+        </div>
+        <div style="text-align:center; padding:20px; border-left:1px solid rgba(255,255,255,0.08);">
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:clamp(36px,4vw,56px); color:#FF3D00; line-height:1; display:block;">@Model.CompletedSessions</span>
+            <span style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#B0B0B0; margin-top:6px; display:block;">Completed Sessions</span>
+        </div>
+
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TICKER
+════════════════════════════════════════════ -->
+<div aria-hidden="true" style="background:#FF3D00; padding:14px 0; overflow:hidden;">
+    <div class="ticker-track" style="display:flex; width:max-content; white-space:nowrap;">
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Outdoor Trainers <span style="width:6px;height:6px;background:rgba(255,255,255,0.5);border-radius:50%;display:inline-block;"></span></span>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Online Classes <span style="width:6px;height:6px;background:rgba(255,255,255,0.5);border-radius:50%;display:inline-block;"></span></span>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Personal Training <span style="width:6px;height:6px;background:rgba(255,255,255,0.5);border-radius:50%;display:inline-block;"></span></span>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Live Sessions <span style="width:6px;height:6px;background:rgba(255,255,255,0.5);border-radius:50%;display:inline-block;"></span></span>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Certified Coaches <span style="width:6px;height:6px;background:rgba(255,255,255,0.5);border-radius:50%;display:inline-block;"></span></span>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Elite Programs <span style="width:6px;height:6px;background:rgba(255,255,255,0.5);border-radius:50%;display:inline-block;"></span></span>
+        <!-- duplicate for seamless loop -->
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Outdoor Trainers <span style="width:6px;height:6px;background:rgba(255,255,255,0.5);border-radius:50%;display:inline-block;"></span></span>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Online Classes <span style="width:6px;height:6px;background:rgba(255,255,255,0.5);border-radius:50%;display:inline-block;"></span></span>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Personal Training <span style="width:6px;height:6px;background:rgba(255,255,255,0.5);border-radius:50%;display:inline-block;"></span></span>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Live Sessions <span style="width:6px;height:6px;background:rgba(255,255,255,0.5);border-radius:50%;display:inline-block;"></span></span>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Certified Coaches <span style="width:6px;height:6px;background:rgba(255,255,255,0.5);border-radius:50%;display:inline-block;"></span></span>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Elite Programs <span style="width:6px;height:6px;background:rgba(255,255,255,0.5);border-radius:50%;display:inline-block;"></span></span>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════ -->
+<section>
+    <div class="about-grid" style="padding:clamp(80px,10vw,140px) clamp(20px,5vw,80px); max-width:1400px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,100px); align-items:center;">
+
+        <!-- images -->
+        <div class="about-imgs" style="position:relative; height:clamp(400px,55vw,680px);">
+            <div style="position:absolute; width:70%; height:80%; top:0; left:0; overflow:hidden; border-radius:4px;">
+                <img src="~/images/about-1.png" alt="Training session" style="width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(20%);">
             </div>
-
-            <div class="col-md-1 offset-md-2 col-12 order-first order-md-last">
-                <div class="character d-md-block d-flex justify-content-center">
-                    <img src="~/images/Theo Vance.jpg" alt="Theo Vance" />
-                </div>
+            <div style="position:absolute; width:48%; height:52%; bottom:0; right:0; overflow:hidden; border-radius:4px; border:3px solid #FF3D00; z-index:2;">
+                <img src="~/images/about-2.png" alt="Athlete" style="width:100%; height:100%; object-fit:cover; display:block;">
+            </div>
+            <div class="about-badge" style="position:absolute; top:50%; left:55%; width:110px; height:110px; background:#FF3D00; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:3; box-shadow:0 0 0 8px #0F0F0F,0 0 0 16px rgba(255,61,0,0.2);">
+                <span style="font-family:'Bebas Neue',sans-serif; font-size:28px; line-height:1; color:#fff; display:block;">10+</span>
+                <span style="font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.8);">Years</span>
             </div>
         </div>
 
-        <div class="bar bg-primary-color d-flex py-4 text-white fw-bolder align-items-center">
-            <p class="py-0 my-0 overflow-hidden text-nowrap">
-                outdoor & online trainers
-                <img src="~/images/star.svg" alt="star icon" /> personal training
-                <img src="~/images/star.svg" alt="star icon" /> live classes
-                <img src="~/images/star.svg" alt="star icon" /> personal trainers
-                <img src="~/images/star.svg" alt="star icon" /> personal training
+        <!-- content -->
+        <div>
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+                <span style="font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:#FF3D00; font-weight:500;">About Us</span>
+                <span style="width:30px; height:1px; background:#FF3D00; display:block;"></span>
+            </div>
+
+            <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(40px,5vw,72px); line-height:0.95; margin-bottom:24px; color:#F5F5F0; letter-spacing:0.02em;">
+                Empowering You<br>to Achieve Your<br>
+                <em style="font-family:'Playfair Display',serif; font-style:italic; color:#FF3D00;">Fitness</em> Goals
+            </h2>
+
+            <p style="color:#B0B0B0; font-size:15px; line-height:1.8; margin-bottom:40px;">
+                Fitness is more than a workout — it's a lifestyle. With top-of-the-line facilities,
+                certified trainers, and a supportive community, we're here to inspire and guide you every step of the way.
+            </p>
+
+            <!-- feature cards -->
+            <div class="feats-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-bottom:40px;">
+
+                <div class="feat-card" style="background:#1A1A1A; padding:24px; position:relative; overflow:hidden; transition:background 0.3s;">
+                    <div style="width:36px; height:36px; background:#FF3D00; display:flex; align-items:center; justify-content:center; margin-bottom:16px; clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /></svg>
+                    </div>
+                    <div style="font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:0.05em; margin-bottom:6px; color:#F5F5F0;">Personal Trainer</div>
+                    <div style="font-size:12px; color:#B0B0B0; line-height:1.7;">Achieve your goals with certified expert guidance.</div>
+                    <div class="feat-line" style="position:absolute; bottom:0; left:0; width:0; height:2px; background:#FF3D00;"></div>
+                </div>
+
+                <div class="feat-card" style="background:#1A1A1A; padding:24px; position:relative; overflow:hidden; transition:background 0.3s;">
+                    <div style="width:36px; height:36px; background:#FF3D00; display:flex; align-items:center; justify-content:center; margin-bottom:16px; clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>
+                    </div>
+                    <div style="font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:0.05em; margin-bottom:6px; color:#F5F5F0;">Live Classes</div>
+                    <div style="font-size:12px; color:#B0B0B0; line-height:1.7;">Real-time group sessions that keep you motivated.</div>
+                    <div class="feat-line" style="position:absolute; bottom:0; left:0; width:0; height:2px; background:#FF3D00;"></div>
+                </div>
+
+                <div class="feat-card" style="background:#1A1A1A; padding:24px; position:relative; overflow:hidden; transition:background 0.3s;">
+                    <div style="width:36px; height:36px; background:#FF3D00; display:flex; align-items:center; justify-content:center; margin-bottom:16px; clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+                    </div>
+                    <div style="font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:0.05em; margin-bottom:6px; color:#F5F5F0;">Flexible Timing</div>
+                    <div style="font-size:12px; color:#B0B0B0; line-height:1.7;">Train on your schedule, not ours.</div>
+                    <div class="feat-line" style="position:absolute; bottom:0; left:0; width:0; height:2px; background:#FF3D00;"></div>
+                </div>
+
+                <div class="feat-card" style="background:#1A1A1A; padding:24px; position:relative; overflow:hidden; transition:background 0.3s;">
+                    <div style="width:36px; height:36px; background:#FF3D00; display:flex; align-items:center; justify-content:center; margin-bottom:16px; clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
+                    </div>
+                    <div style="font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:0.05em; margin-bottom:6px; color:#F5F5F0;">Track Progress</div>
+                    <div style="font-size:12px; color:#B0B0B0; line-height:1.7;">Data-driven insights to measure your gains.</div>
+                    <div class="feat-line" style="position:absolute; bottom:0; left:0; width:0; height:2px; background:#FF3D00;"></div>
+                </div>
+
+            </div>
+
+            <button class="btn-fire" style="display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:#FF3D00; color:#fff; font-family:'DM Sans',sans-serif; font-weight:500; font-size:13px; letter-spacing:0.15em; text-transform:uppercase; border:none; cursor:pointer; clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px)); transition:background 0.25s ease,transform 0.25s ease;">
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                Start Your Journey
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     WORKOUTS
+════════════════════════════════════════════ -->
+<section style="background:#1A1A1A; padding:clamp(80px,10vw,140px) clamp(20px,5vw,80px); position:relative; overflow:hidden;">
+
+    <div aria-hidden="true" style="font-family:'Bebas Neue',sans-serif; font-size:30vw; position:absolute; right:-2%; top:50%; transform:translateY(-50%); color:transparent; -webkit-text-stroke:1px rgba(255,61,0,0.06); pointer-events:none; line-height:1; user-select:none;">TRAIN</div>
+
+    <!-- header -->
+    <div class="w-header" style="max-width:1400px; margin:0 auto 60px; display:flex; justify-content:space-between; align-items:flex-end; position:relative; z-index:1;">
+        <div>
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+                <span style="font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:#FF3D00; font-weight:500;">Programs</span>
+                <span style="width:30px; height:1px; background:#FF3D00; display:block;"></span>
+            </div>
+            <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(40px,5vw,72px); line-height:0.95; color:#F5F5F0; letter-spacing:0.02em;">
+                Transform With<br>Our Dynamic<br>
+                <em style="font-family:'Playfair Display',serif; font-style:italic; color:#FF3D00;">Workouts</em>
+            </h2>
+        </div>
+        <button class="btn-ghost" style="display:inline-flex; align-items:center; gap:8px; color:#F5F5F0; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; border:none; background:none; cursor:pointer; padding-bottom:8px; transition:color 0.2s; align-self:flex-end;">
+            <span class="arr-circle" style="width:32px; height:32px; border:1px solid rgba(255,255,255,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </span>
+            View All Programs
+        </button>
+    </div>
+
+    <!-- cards -->
+    <div class="w-cards" style="max-width:1400px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; position:relative; z-index:1;">
+
+        <div class="w-card" style="position:relative; overflow:hidden; aspect-ratio:3/4; background:#2A2A2A; cursor:pointer;">
+            <img src="~/images/workout_1.png" alt="Group Workout" style="width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(40%) brightness(0.8);">
+            <div style="position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 60%); display:flex; flex-direction:column; justify-content:flex-end; padding:32px 28px;">
+                <div class="w-num" style="font-family:'Bebas Neue',sans-serif; font-size:72px; line-height:1; color:transparent; -webkit-text-stroke:1px rgba(255,255,255,0.15); position:absolute; top:20px; right:20px; transition:-webkit-text-stroke 0.3s;">01</div>
+                <p style="font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:#FF3D00; margin-bottom:8px;">Community</p>
+                <h3 style="font-family:'Bebas Neue',sans-serif; font-size:32px; letter-spacing:0.05em; line-height:1; margin-bottom:16px; color:#F5F5F0;">Group Workout</h3>
+                <a href="#" class="w-link" style="display:inline-flex; align-items:center; gap:8px; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s;">
+                    <span class="w-line" style="width:24px; height:1px; background:currentColor; transition:width 0.3s ease; display:block;"></span>Explore
+                </a>
+            </div>
+        </div>
+
+        <div class="w-card" style="position:relative; overflow:hidden; aspect-ratio:3/4; background:#2A2A2A; cursor:pointer;">
+            <img src="~/images/workout_2.png" alt="Strength Training" style="width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(40%) brightness(0.8);">
+            <div style="position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 60%); display:flex; flex-direction:column; justify-content:flex-end; padding:32px 28px;">
+                <div class="w-num" style="font-family:'Bebas Neue',sans-serif; font-size:72px; line-height:1; color:transparent; -webkit-text-stroke:1px rgba(255,255,255,0.15); position:absolute; top:20px; right:20px; transition:-webkit-text-stroke 0.3s;">02</div>
+                <p style="font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:#FF3D00; margin-bottom:8px;">Power</p>
+                <h3 style="font-family:'Bebas Neue',sans-serif; font-size:32px; letter-spacing:0.05em; line-height:1; margin-bottom:16px; color:#F5F5F0;">Strength Training</h3>
+                <a href="#" class="w-link" style="display:inline-flex; align-items:center; gap:8px; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s;">
+                    <span class="w-line" style="width:24px; height:1px; background:currentColor; transition:width 0.3s ease; display:block;"></span>Explore
+                </a>
+            </div>
+        </div>
+
+        <div class="w-card" style="position:relative; overflow:hidden; aspect-ratio:3/4; background:#2A2A2A; cursor:pointer;">
+            <img src="~/images/workout_3.png" alt="Cardio Blast" style="width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(40%) brightness(0.8);">
+            <div style="position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 60%); display:flex; flex-direction:column; justify-content:flex-end; padding:32px 28px;">
+                <div class="w-num" style="font-family:'Bebas Neue',sans-serif; font-size:72px; line-height:1; color:transparent; -webkit-text-stroke:1px rgba(255,255,255,0.15); position:absolute; top:20px; right:20px; transition:-webkit-text-stroke 0.3s;">03</div>
+                <p style="font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:#FF3D00; margin-bottom:8px;">Endurance</p>
+                <h3 style="font-family:'Bebas Neue',sans-serif; font-size:32px; letter-spacing:0.05em; line-height:1; margin-bottom:16px; color:#F5F5F0;">Cardio Blast</h3>
+                <a href="#" class="w-link" style="display:inline-flex; align-items:center; gap:8px; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s;">
+                    <span class="w-line" style="width:24px; height:1px; background:currentColor; transition:width 0.3s ease; display:block;"></span>Explore
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     WHY US
+════════════════════════════════════════════ -->
+<section>
+    <div class="whyus-grid" style="padding:clamp(80px,10vw,140px) clamp(20px,5vw,80px); max-width:1400px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,100px); align-items:center;">
+
+        <!-- content -->
+        <div>
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+                <span style="font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:#FF3D00; font-weight:500;">Why Choose Us</span>
+                <span style="width:30px; height:1px; background:#FF3D00; display:block;"></span>
+            </div>
+
+            <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(40px,5vw,72px); line-height:0.95; margin-bottom:24px; color:#F5F5F0; letter-spacing:0.02em;">
+                Elevate Fitness<br>the <em style="font-family:'Playfair Display',serif; font-style:italic; color:#FF3D00;">Best</em><br>Way Possible
+            </h2>
+
+            <p style="color:#B0B0B0; font-size:15px; line-height:1.8;">
+                We believe fitness is more than just a workout — it's a lifestyle built on top-tier
+                facilities, certified trainers, and a community that lifts you up every single day.
+            </p>
+
+            <ul style="list-style:none; padding:0; margin-top:40px;">
+
+                <li class="reason-row" style="display:grid; grid-template-columns:80px 1fr; gap:24px; padding:28px 0; border-top:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07); align-items:start; transition:border-color 0.3s; cursor:default;">
+                    <div class="r-num" style="font-family:'Bebas Neue',sans-serif; font-size:48px; color:transparent; -webkit-text-stroke:1px rgba(255,61,0,0.4); line-height:1; transition:-webkit-text-stroke 0.3s;">01</div>
+                    <div>
+                        <h3 style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.05em; margin-bottom:8px; color:#F5F5F0;">Personalized Fitness Plans</h3>
+                        <p style="font-size:13px; color:#B0B0B0; line-height:1.8;">Every workout is tailored to your unique goals and fitness level, ensuring maximum progress in minimum time.</p>
+                    </div>
+                </li>
+
+                <li class="reason-row" style="display:grid; grid-template-columns:80px 1fr; gap:24px; padding:28px 0; border-bottom:1px solid rgba(255,255,255,0.07); align-items:start; transition:border-color 0.3s; cursor:default;">
+                    <div class="r-num" style="font-family:'Bebas Neue',sans-serif; font-size:48px; color:transparent; -webkit-text-stroke:1px rgba(255,61,0,0.4); line-height:1; transition:-webkit-text-stroke 0.3s;">02</div>
+                    <div>
+                        <h3 style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.05em; margin-bottom:8px; color:#F5F5F0;">Expert Certified Trainers</h3>
+                        <p style="font-size:13px; color:#B0B0B0; line-height:1.8;">Our coaches bring years of experience and passion to every session, pushing you safely beyond your limits.</p>
+                    </div>
+                </li>
+
+                <li class="reason-row" style="display:grid; grid-template-columns:80px 1fr; gap:24px; padding:28px 0; border-bottom:1px solid rgba(255,255,255,0.07); align-items:start; transition:border-color 0.3s; cursor:default;">
+                    <div class="r-num" style="font-family:'Bebas Neue',sans-serif; font-size:48px; color:transparent; -webkit-text-stroke:1px rgba(255,61,0,0.4); line-height:1; transition:-webkit-text-stroke 0.3s;">03</div>
+                    <div>
+                        <h3 style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.05em; margin-bottom:8px; color:#F5F5F0;">State-of-the-Art Facilities</h3>
+                        <p style="font-size:13px; color:#B0B0B0; line-height:1.8;">Premium equipment in an environment designed to fuel performance and keep you coming back for more.</p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <!-- visual -->
+        <div class="whyus-vis" style="position:relative;">
+            <div style="position:relative; overflow:hidden; height:clamp(500px,60vw,720px);">
+                <div style="position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,61,0,0.15) 0%,transparent 50%); z-index:1; pointer-events:none;"></div>
+                <img src="~/images/characters.png" alt="Athletes training" style="width:100%; height:100%; object-fit:cover; filter:grayscale(30%); display:block;">
+            </div>
+            <div class="whyus-float-card" style="position:absolute; bottom:40px; left:-40px; background:#FF3D00; padding:28px 32px; z-index:3; max-width:240px;">
+                <div style="font-family:'Bebas Neue',sans-serif; font-size:56px; line-height:1; color:#fff;">98%</div>
+                <div style="font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.8); margin-top:4px;">Member Satisfaction Rate</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer style="background:#080808; border-top:1px solid rgba(255,61,0,0.2); margin-top:clamp(80px,10vw,140px);">
+
+    <!-- reverse ticker -->
+    <div aria-hidden="true" style="background:#2A2A2A; padding:14px 0; overflow:hidden;">
+        <div class="ticker-track-reverse" style="display:flex; width:max-content; white-space:nowrap;">
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Outdoor Trainers <span style="width:6px;height:6px;background:rgba(255,255,255,0.3);border-radius:50%;display:inline-block;"></span></span>
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Online Classes <span style="width:6px;height:6px;background:rgba(255,255,255,0.3);border-radius:50%;display:inline-block;"></span></span>
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Personal Training <span style="width:6px;height:6px;background:rgba(255,255,255,0.3);border-radius:50%;display:inline-block;"></span></span>
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Elite Community <span style="width:6px;height:6px;background:rgba(255,255,255,0.3);border-radius:50%;display:inline-block;"></span></span>
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Push Your Limits <span style="width:6px;height:6px;background:rgba(255,255,255,0.3);border-radius:50%;display:inline-block;"></span></span>
+            <!-- duplicate -->
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Outdoor Trainers <span style="width:6px;height:6px;background:rgba(255,255,255,0.3);border-radius:50%;display:inline-block;"></span></span>
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Online Classes <span style="width:6px;height:6px;background:rgba(255,255,255,0.3);border-radius:50%;display:inline-block;"></span></span>
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Personal Training <span style="width:6px;height:6px;background:rgba(255,255,255,0.3);border-radius:50%;display:inline-block;"></span></span>
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Elite Community <span style="width:6px;height:6px;background:rgba(255,255,255,0.3);border-radius:50%;display:inline-block;"></span></span>
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.15em; padding:0 40px; color:#fff; display:inline-flex; align-items:center; gap:16px;">Push Your Limits <span style="width:6px;height:6px;background:rgba(255,255,255,0.3);border-radius:50%;display:inline-block;"></span></span>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div class="footer-grid" style="max-width:1400px; margin:0 auto; padding:80px clamp(20px,5vw,80px) 60px; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:60px;">
+
+        <div>
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:36px; letter-spacing:0.1em; color:#F5F5F0;">FIT<span style="color:#FF3D00;">FORGE</span></div>
+            <p style="font-size:14px; color:#B0B0B0; line-height:1.8; margin-top:20px; max-width:280px;">
+                Push harder, go further. Your fitness journey starts today — and we're with you every rep of the way.
             </p>
         </div>
 
-        <!-- ^ all other section -->
-        <main>
-            <!-- ^ about section -->
-            <section class="about my-5 text-black-alternative">
-                <div class="container">
-                    <div class="row g-5 justify-content-center">
-                        <div class="col-12 col-lg-6 w-50 w-md-100">
-                            <div class="characters position-relative">
-                                <div class="image">
-                                    <img class="" src="~/images/about p1.jpg" alt="person" />
-                                </div>
+        <div>
+            <h4 style="font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:0.2em; color:#B0B0B0; margin-bottom:28px;">Contact Us</h4>
+            <ul style="list-style:none; padding:0;">
+                <li style="display:flex; align-items:center; gap:12px; margin-bottom:16px; font-size:14px; color:#F5F5F0;">
+                    <span style="width:6px; height:6px; background:#FF3D00; border-radius:50%; flex-shrink:0; display:inline-block;"></span>+91 123 456 789
+                </li>
+                <li style="display:flex; align-items:center; gap:12px; font-size:14px; color:#F5F5F0;">
+                    <span style="width:6px; height:6px; background:#FF3D00; border-radius:50%; flex-shrink:0; display:inline-block;"></span>info@fitforge.com
+                </li>
+            </ul>
+        </div>
 
-                                <div class="image position-absolute d-none d-lg-block">
-                                    <img src="~/images/about p2.jpg" alt="person" />
-                                </div>
+        <div>
+            <h4 style="font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:0.2em; color:#B0B0B0; margin-bottom:28px;">Gym Timing</h4>
+            <p style="font-size:14px; color:#F5F5F0; line-height:1.8;">Mon – Fri<br>08:00 AM – 10:00 PM<br><br>Sat – Sun<br>08:00 AM – 09:00 PM</p>
+        </div>
 
-                                <div class="image position-absolute d-none d-lg-block">
-                                    <img src="~/images/about p3.jpg" alt="person" />
-                                </div>
-                            </div>
-                        </div>
+        <div>
+            <h4 style="font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:0.2em; color:#B0B0B0; margin-bottom:28px;">Location</h4>
+            <p style="font-size:14px; color:#F5F5F0; line-height:1.8;">2715 Ash Dr. San Jose,<br>South Dakota 83475</p>
+        </div>
 
-                        <div class="col-12 col-lg-6">
-                            <div class="title d-flex justify-content-start align-items-start gap-2">
-                                <img class="" src="~/images/dumbbell.jpg" alt="dumbbell icon" />
-                                <h2 class="text-primary-color fs-5">About Us</h2>
-                            </div>
+    </div>
 
-                            <header>
-                                <p class="fw-bolder display-6 mb-4">
-                                    EMPOWERING YOU TO ACHIEVE
-                                    <span class="text-primary-color">YOUR FITNESS</span> GOALS
-                                </p>
-                                <p class="text">
-                                    We believe fitness is more than just a workout—it's a
-                                    lifestyle. With top-of- the-line facilities, certified
-                                    trainers, and a supportive community, we're here to inspire
-                                    and guide you every step of the way.
-                                </p>
-                            </header>
+    <!-- bottom bar -->
+    <div style="border-top:1px solid rgba(255,255,255,0.05); padding:24px clamp(20px,5vw,80px); display:flex; align-items:center; justify-content:space-between; max-width:1400px; margin:0 auto;">
+        <p style="font-size:12px; color:rgba(255,255,255,0.3); letter-spacing:0.05em;">© 2025 FitForge. All rights reserved.</p>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:12px; letter-spacing:0.2em; color:#FF3D00;">No Pain · No Gain · No Excuses</span>
+    </div>
 
-                            <div class="features">
-                                <div class="row row-cols-1 row-cols-sm-2 gx-3 gy-5">
-                                    <div class="feature">
-                                        <div class="inner">
-                                            <div class="title d-flex gap-2">
-                                                <img src="./images/feature icon.jpg" alt="icon" />
-                                                <h3 class="fw-bold">Personal Trainer</h3>
-                                            </div>
-                                            <div class="info">
-                                                <p>Achieve your fitness goals with the</p>
-                                                <p>guidance of our certified trainers.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="feature">
-                                        <div class="inner">
-                                            <div class="title d-flex gap-2">
-                                                <img src="~/images/feature icon.jpg" alt="icon" />
-                                                <h3 class="fw-bold">Personal Trainer</h3>
-                                            </div>
-                                            <div class="info">
-                                                <p>Achieve your fitness goals with the</p>
-                                                <p>guidance of our certified trainers.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="feature">
-                                        <div class="inner">
-                                            <div class="title d-flex gap-2">
-                                                <img src="~/images/feature icon.jpg" alt="icon" />
-                                                <h3 class="fw-bold">Personal Trainer</h3>
-                                            </div>
-                                            <div class="info">
-                                                <p>Achieve your fitness goals with the</p>
-                                                <p>guidance of our certified trainers.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="feature">
-                                        <div class="inner">
-                                            <div class="title d-flex gap-2">
-                                                <img src="~/images/feature icon.jpg" alt="icon" />
-                                                <h3 class="fw-bold">Personal Trainer</h3>
-                                            </div>
-                                            <div class="info">
-                                                <p>Achieve your fitness goals with the</p>
-                                                <p>guidance of our certified trainers.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="btn bg-primary-color rounded-pill text-white fw-medium px-4 py-2 mt-3">
-                                    Get Started
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ^ workout section -->
-            <section class="workout">
-                <div class="container">
-                    <div class="title">
-                        <h2>WORKOUTS</h2>
-                        <p class="text-white fw-bolder fs-2 mb-4">
-                            Transform Your Body with Our Dynamic Upcoming Workouts
-                        </p>
-                    </div>
-
-                    <div class="row row-cols-md-3 row-cols-12 gy-4 gx-2 gx-md-4">
-                        <div>
-                            <div class="card">
-                                <img src="~/images/workout 1.jpg" class="card-img-top" alt="..." />
-
-                                <footer class="card-footer bg-white">
-                                    <h5 class="card-title text-black-alternative text-uppercase fw-bolder">
-                                        group workout
-                                    </h5>
-                                    <a href="#" class="">Explore</a>
-                                </footer>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="card">
-                                <img src="~/images/workout 2.jpg" class="card-img-top" alt="..." />
-
-                                <footer class="card-footer bg-white">
-                                    <h5 class="card-title text-black-alternative text-uppercase fw-bolder">
-                                        group workout
-                                    </h5>
-                                    <a href="#" class="">Explore</a>
-                                </footer>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="card">
-                                <img src="~/images/workout 3.jpg" class="card-img-top" alt="..." />
-
-                                <footer class="card-footer bg-white">
-                                    <h5 class="card-title text-black-alternative text-uppercase fw-bolder">
-                                        group workout
-                                    </h5>
-                                    <a href="#" class="">Explore</a>
-                                </footer>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="indicators">
-                        <div class="indicator"></div>
-                        <div class="indicator active"></div>
-                        <div class="indicator"></div>
-                        <div class="indicator"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ^ why-us section -->
-            <section class="why-us my-5">
-                <div class="container">
-                    <div class="row row-cols-1 row-cols-lg-2">
-                        <div class="info">
-                            <div>
-                                <div class="title d-flex justify-content-start align-items-start gap-2">
-                                    <img class="" src="~/images/dumbbell.jpg" alt="dumbbell icon" />
-                                    <h2 class="text-primary-color fs-5">Why Us</h2>
-                                </div>
-
-                                <header>
-                                    <p class="fw-bolder display-5 mb-4">
-                                        Elevate fitness with<br />
-                                        <span class="text-primary-color">the best</span> way
-                                        possible
-                                    </p>
-                                    <p class="text">
-                                        We believe fitness is more than just a workout—it's a
-                                        lifestyle. With top-of- the-line facilities, certified
-                                        trainers, and a supportive community, we're here to inspire
-                                        and guide you every step of the way.
-                                    </p>
-                                </header>
-
-                                <ul class="featutes list-unstyled mt-6">
-                                    <li class="feature d-flex gap-4 align-items-center mb-4">
-                                        <div class="count">01</div>
-
-                                        <div class="text">
-                                            <h3 class="text-capitalize fw-bold">
-                                                personalized fitness plans
-                                            </h3>
-                                            <p class="fs-18">
-                                                We tailor every workout to fit your unique goals and
-                                                fitness level ensuring that you make the most progress.
-                                            </p>
-                                        </div>
-                                    </li>
-
-                                    <li class="feature d-flex gap-4 align-items-center mb-4">
-                                        <div class="count">01</div>
-
-                                        <div class="text">
-                                            <h3 class="text-capitalize fw-bold">
-                                                personalized fitness plans
-                                            </h3>
-                                            <p class="fs-18">
-                                                We tailor every workout to fit your unique goals and
-                                                fitness level ensuring that you make the most progress.
-                                            </p>
-                                        </div>
-                                    </li>
-
-                                    <li class="feature d-flex gap-4 align-items-center">
-                                        <div class="count">01</div>
-
-                                        <div class="text">
-                                            <h3 class="text-capitalize fw-bold">
-                                                personalized fitness plans
-                                            </h3>
-                                            <p class="fs-18">
-                                                We tailor every workout to fit your unique goals and
-                                                fitness level ensuring that you make the most progress.
-                                            </p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="characters d-none d-lg-block">
-                            <div class="images">
-                                <img class="" src="~/images/why us images.svg" alt="characters" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        
-        <footer class="mt-5">
-            <div class="bar bg-primary-color d-flex py-4 text-white fw-bolder align-items-center">
-                <p class="py-0 my-0 overflow-hidden text-nowrap">
-                    outdoor & online trainers
-                    <img src="~/images/star.svg" alt="star icon" /> personal training
-                    <img src="~/images/star.svg" alt="star icon" /> live classes
-                    <img src="~/images/star.svg" alt="star icon" /> personal trainers
-                    <img src="~/images/star.svg" alt="star icon" /> personal training
-                </p>
-            </div>
-
-            <div class="footer-content my-5">
-                <div class="container">
-                    <div class="row row-cols-2 row-cols-md-4 g-5">
-                        <div class="logo">
-                            <div class="inner">
-                                <div class="image">
-                                    <img src="../images/logo.jpg" alt="our logo" />
-                                </div>
-                                <p class="fs-18 mt-2">
-                                    Push harder, go further. Your <br />
-                                    fitness journey starts today!
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="contact">
-                            <h4 class="fw-bolder text-uppercase mb-4">contact us</h4>
-
-                            <ul>
-                                <li class="d-flex align-items-center gap-2">
-                                    <div class="icon">
-                                        <img src="../images/phone icon.jpg" alt="phone icon" />
-                                    </div>
-                                    <p>+91 123 456 789</p>
-                                </li>
-
-                                <li class="d-flex align-items-center gap-2">
-                                    <div class="icon">
-                                        <img src="../images/message icon.jpg" alt="message icon" />
-                                    </div>
-                                    <p>info@gmail.com</p>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="time">
-                            <h4 class="fw-bolder text-uppercase mb-4">our gym timing</h4>
-
-                            <p>
-                                Mon - Fri : 08:00 AM - 10:00 PM <br />Sat - Sun : 08:00 AM -
-                                09:00 PM
-                            </p>
-                        </div>
-
-                        <div class="location">
-                            <h4 class="fw-bolder text-uppercase mb-4">our location</h4>
-
-                            <p>
-                                2715 Ash Dr. San Jose, South <br />
-                                Dakota 83475
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-    </main>
-</div>
+</footer>
